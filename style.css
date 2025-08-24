@@ -85,10 +85,10 @@ p{
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  max-width: 1000px;      /* 👈 מוסיף מגבלת רוחב */
-  margin: 0 auto;        /* 👈 מרכז את התוכן באמצע הדף */
-  padding: 0 1rem;       /* 👈 ריווח פנימי בצדדים למסכים צרים */
-  min-height: 300px; /* 👈 מגביל את הגובה */
+  max-width: 1000px;  
+  margin: 0 auto;    
+  padding: 0 1rem; 
+  min-height: 300px;
 }
 
 
@@ -96,10 +96,10 @@ p{
   flex: 1;
 }
 .hero-image {
-  flex-shrink: 0;                /* מונע התכווצות */
-  max-width: 350px;              /* מגביל רוחב */
-  width: 100%;                   /* גמישות רוחב */
-  aspect-ratio: 1 / 1;           /* יחס גובה-רוחב 1:1 */
+  flex-shrink: 0;            
+  max-width: 350px;           
+  width: 100%;                   
+  aspect-ratio: 1 / 1;        
   min-height: 200px;
   background-color: #e2e8f0;
   display: flex;
@@ -107,16 +107,16 @@ p{
   justify-content: center;
   font-weight: bold;
   color: #888;
-    border-radius: 50%;    /* הפוך את המיכל למעגל */
-    overflow: hidden;      /* חתוך את התוכן מעבר למעגל */
+    border-radius: 50%;
+    overflow: hidden;     
 
 }
 
 .hero-image img {
   width: 100%;
-  height: 100%;          /* עדיף למלא את המיכל */
-  border-radius: 50%;    /* להפוך למעגל */
-  object-fit: cover;     /* חיתוך חכם */
+  height: 100%;         
+  border-radius: 50%;   
+  object-fit: cover;   
   display: block;
 }
 
@@ -142,15 +142,44 @@ p{
   background-color: #f59e0b;
 }
 
-.btn.yellow:hover {
-  background-color: #d97706;
+.btn.green {
+  background-color: #28a745;
 }
 
-/* === About Section === */
-.section-title {
-  text-align: center;    /* ממרכז את הטקסט */
-  margin-bottom: 2rem;   /* רווח מתחת לכותרת */
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
 }
+
+.btn.yellow:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn.green:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+/* === About Section === */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;          /* רוחב הקו */
+  height: 3px;          /* עובי הקו */
+  background-color: #1e40af; /* צבע כחול */
+  margin: 8px auto 0;   /* רווח מעל ומרכז */
+  border-radius: 2px;   /* קצוות מעוגלות */
+}
+
 
 .about-section {
   padding: 4rem 0;
@@ -172,9 +201,9 @@ p{
 }
 
 .skills-list li {
-  display: flex;            /* ✅ מציב את המילה ואת הבר בשורה אחת */
-  align-items: center;      /* ✅ ממרכז אנכית */
-  justify-content: space-between; /* ✅ מרווח בין המילה לבר */
+  display: flex;         
+  align-items: center;    
+  justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.8rem;
 }
@@ -187,18 +216,39 @@ p{
 .bar {
   display: block;
   width: 100%;
-  max-width: 120px;         /* ✅ מצמצם את האורך של הבר */
-  height: 6px;              /* ✅ עושה אותו קטן יותר */
+  max-width: 120px;         
+  height: 6px;             
   background: #e5e7eb;
   border-radius: 4px;
   overflow: hidden;
+}
+.fill.js {
+  width: 90%;
+  background-color: #f7df1e; /* צהוב JavaScript */
+}
+
+.fill.react {
+  width: 80%;
+  background-color: #61dafb; /* תכלת React */
+}
+
+.fill.node {
+  width: 75%;
+  background-color: #3c873a; /* ירוק NodeJS */
+}
+
+.fill.mongo {
+  width: 70%;
+  background-color: #4DB33D; /* ירוק MongoDB */
 }
 
 .fill {
   display: block;
   height: 100%;
-  background: #1e40af;
+  border-radius: 4px;
+  transition: width 0.6s ease, background-color 0.3s ease;
 }
+
 
 /* אחוזים */
 .js    { width: 90%; }
@@ -233,8 +283,8 @@ p{
 
 .project-card img {
   width: 100%;
-  height: 240px;          /* גובה קבוע לתמונה */
-  object-fit: cover;      /* ממלא את המסגרת בצורה חכמה */
+  height: 240px;        
+  object-fit: cover;     
   display: block;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -303,10 +353,10 @@ p{
 
 .social-icons a.icon {
   display: inline-block;
-  width: 40px;   /* רוחב האייקון */
-  height: 40px;  /* גובה האייקון */
-  border-radius: 50%;  /* אם תרצה עיגול */
-  overflow: hidden;    /* לחיתוך אם צריך */
+  width: 40px;  
+  height: 40px; 
+  border-radius: 50%; 
+  overflow: hidden;   
   transition: transform 0.3s ease;
 }
 
