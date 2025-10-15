@@ -177,37 +177,39 @@
 
   <!-- Carousel Script -->
   <script>
-    const track = document.querySelector('.carousel-track');
-const leftBtn = document.querySelector('.carousel-btn.left');
-const rightBtn = document.querySelector('.carousel-btn.right');
-const projectCards = document.querySelectorAll('.project-card');
+    document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const leftBtn = document.querySelector('.carousel-btn.left');
+  const rightBtn = document.querySelector('.carousel-btn.right');
+  const projectCards = document.querySelectorAll('.project-card');
 
-let currentIndex = 0;
+  let currentIndex = 0;
 
-const updateTransform = () => {
-  const cardWidth = projectCards[0].offsetWidth + 32; // 32px gap
-  // המנע מתזוזה מעבר לכרטיס האחרון
-  const maxIndex = projectCards.length - Math.floor(track.parentElement.offsetWidth / projectCards[0].offsetWidth);
-  currentIndex = Math.min(currentIndex, maxIndex);
-  track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-};
+  const updateTransform = () => {
+    const cardWidth = projectCards[0].offsetWidth + 32;
+    const maxIndex = projectCards.length - Math.floor(track.parentElement.offsetWidth / projectCards[0].offsetWidth);
+    currentIndex = Math.min(currentIndex, maxIndex);
+    track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+  };
 
-rightBtn.addEventListener('click', () => {
-  const maxIndex = projectCards.length - Math.floor(track.parentElement.offsetWidth / projectCards[0].offsetWidth);
-  if (currentIndex < maxIndex) {
-    currentIndex++;
-    updateTransform();
-  }
+  rightBtn.addEventListener('click', () => {
+    const maxIndex = projectCards.length - Math.floor(track.parentElement.offsetWidth / projectCards[0].offsetWidth);
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateTransform();
+    }
+  });
+
+  leftBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateTransform();
+    }
+  });
+
+  window.addEventListener('resize', updateTransform);
 });
 
-leftBtn.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateTransform();
-  }
-});
-
-window.addEventListener('resize', updateTransform);
   
   </script>
 </body>
